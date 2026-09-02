@@ -1,0 +1,348 @@
+.recovery-page {
+  min-height: 100vh;
+  background: #f6f7f9;
+  color: #17191c;
+}
+
+/* Navbar */
+
+.recovery-page .navbar {
+  height: 64px;
+  background: #ffffff;
+  border-bottom: 1px solid #e7e8eb;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 42px;
+}
+
+.recovery-page .brand {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  font-weight: 650;
+  font-size: 16px;
+}
+
+.recovery-page .brand-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  background: #17191c;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.recovery-page .nav-links {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.recovery-page .nav-links a {
+  text-decoration: none;
+  color: #73777f;
+  font-size: 13px;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.recovery-page .nav-links a:hover {
+  color: #17191c;
+}
+
+.recovery-page .nav-links a.active {
+  color: #17191c;
+  font-weight: 650;
+}
+
+/* Page */
+
+.history-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 45px 30px 60px;
+}
+
+.history-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 28px;
+}
+
+.eyebrow {
+  margin: 0 0 7px;
+  color: #8a8f98;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+}
+
+.history-header h1 {
+  margin: 0;
+  font-size: 30px;
+  letter-spacing: -0.7px;
+}
+
+.subtitle {
+  margin: 8px 0 0;
+  color: #777c84;
+  font-size: 14px;
+}
+
+.transaction-count {
+  background: #ffffff;
+  border: 1px solid #e2e4e7;
+  padding: 8px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  color: #555a62;
+}
+
+/* Table */
+
+.table-card {
+  background: #ffffff;
+  border: 1px solid #e3e5e8;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 1050px;
+}
+
+thead {
+  background: #fafafa;
+  border-bottom: 1px solid #e7e8eb;
+}
+
+th {
+  padding: 14px 18px;
+  text-align: left;
+  color: #8a8e95;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  white-space: nowrap;
+}
+
+td {
+  padding: 17px 18px;
+  border-bottom: 1px solid #f0f1f2;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+tbody tr {
+  transition: background 0.15s;
+}
+
+tbody tr:hover {
+  background: #fafbfc;
+}
+
+/* Transaction */
+
+.transaction-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.transaction-dot {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: #edf8f1;
+  color: #32945e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.transaction-info strong {
+  display: block;
+  font-size: 12px;
+  color: #272a2f;
+}
+
+.transaction-info small {
+  display: block;
+  margin-top: 3px;
+  color: #9a9da3;
+  font-size: 10px;
+}
+
+/* Amount */
+
+.amount {
+  color: #17191c;
+  font-size: 13px;
+}
+
+/* Failure reason */
+
+.reason {
+  background: #fff7e8;
+  color: #9a6b17;
+  border-radius: 5px;
+  padding: 5px 8px;
+  font-size: 11px;
+}
+
+/* Method */
+
+.method {
+  color: #555a62;
+  font-size: 11px;
+}
+
+/* Date */
+
+.date {
+  color: #686d75;
+  font-size: 11px;
+}
+
+/* Payment ID */
+
+.payment-id {
+  color: #858990;
+  font-family: monospace;
+  font-size: 10px;
+}
+
+/* Status */
+
+.success-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #edf8f1;
+  color: #318b58;
+  padding: 5px 9px;
+  border-radius: 20px;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.success-badge span {
+  width: 5px;
+  height: 5px;
+  background: #39a467;
+  border-radius: 50%;
+}
+
+/* Loading / Empty / Error */
+
+.state-card {
+  background: #ffffff;
+  border: 1px solid #e3e5e8;
+  border-radius: 12px;
+  min-height: 280px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 30px;
+}
+
+.state-card p {
+  color: #858990;
+  font-size: 13px;
+}
+
+.state-card h3 {
+  margin: 14px 0 0;
+  font-size: 16px;
+}
+
+.empty-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: #edf8f1;
+  color: #32945e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+
+.error-state p {
+  color: #b44b4b;
+}
+
+.error-state button {
+  margin-top: 8px;
+  border: none;
+  background: #17191c;
+  color: white;
+  border-radius: 7px;
+  padding: 9px 16px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.loader {
+  width: 25px;
+  height: 25px;
+  border: 3px solid #e5e7e9;
+  border-top-color: #17191c;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive */
+
+@media (max-width: 700px) {
+  .recovery-page .navbar {
+    height: auto;
+    padding: 15px 20px;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .recovery-page .nav-links {
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .history-container {
+    padding: 30px 18px 50px;
+  }
+
+  .history-header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 15px;
+  }
+}

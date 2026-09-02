@@ -1,0 +1,76 @@
+# =========================
+# Python
+# =========================
+
+# Virtual environments
+venv/
+env/
+.venv/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environment variables
+.env
+.env.*
+
+# =========================
+# Node.js
+# =========================
+
+# Dependencies
+node_modules/
+
+# Build files
+dist/
+build/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# =========================
+# IDE / Editor
+# =========================
+
+# VS Code
+.vscode/
+
+# PyCharm
+.idea/
+
+# =========================
+# Operating System
+# =========================
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# =========================
+# Python Testing / Coverage
+# =========================
+
+.pytest_cache/
+.coverage
+htmlcov/
+
+# =========================
+# Database / Local Files
+# =========================
+
+*.sqlite3
+*.db
+
+# =========================
+# Docker
+# =========================
+
+# Docker environment overrides
+docker-compose.override.yml

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Razorpay Test Payment</title>
+</head>
+
+<body>
+
+    <h1>Razorpay Test Payment</h1>
+
+    <p>Amount: ₹100</p>
+
+    <button id="pay-button">
+        Pay ₹100
+    </button>
+
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+    <script>
+        document.getElementById("pay-button").onclick = async function () {
+
+            // 1. Ask our FastAPI backend to create an order
+            const response = await fetch("/create-order", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    amount: 10000
+                })
+            });
+
+            const order = await response.json();
+
+            console.log("Created Razorpay order:", order);
+
+            // 2. Open Razorpay Checkout
+            const options = {
+                key: order.key_id,
+                amount: order.amount,
+                currency: order.currency,
+                name: "AI Revenue Recovery Agent",
+                description: "Test Payment",
+                order_id: order.order_id,
+
+                handler: function (response) {
+
+                    console.log("Payment successful!");
+                    console.log(response);
+
+                    alert(
+                        "Payment successful!\n\n" +
+                        "Payment ID: " +
+                        response.razorpay_payment_id
+                    );
+                },
+
+                modal: {
+                    ondismiss: function () {
+                        console.log("Checkout closed");
+                    }
+                }
+            };
+
+            const razorpay = new Razorpay(options);
+
+            razorpay.on("payment.failed", function (response) {
+
+                console.log("Payment failed!");
+                console.log(response);
+
+                alert(
+                    "Payment failed!\n\n" +
+                    response.error.description
+                );
+            });
+
+            razorpay.open();
+        };
+    </script>
+
+</body>
+</html>
