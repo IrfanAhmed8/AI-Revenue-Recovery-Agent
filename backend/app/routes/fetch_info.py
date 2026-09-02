@@ -24,6 +24,7 @@ def fetch_info(db):
         db.query(func.coalesce(func.sum(RecoveredTransaction.amount), 0))
         .scalar()
     )
+    total_actions=(db.query(func.count(RecoveryAction.id)).scalar())
     recovery_rate=round((recovered_count)/action_count*100, 2) if action_count>0 else 0
 
     return {
@@ -31,5 +32,6 @@ def fetch_info(db):
         "failed_amount": float(failed_amount),
         "recovered_transactions": recovered_count,
         "recovered_amount": float(recovered_amount),
-        "recovery_rate": recovery_rate
+        "recovery_rate": recovery_rate,
+        "total_actions": total_actions
     }

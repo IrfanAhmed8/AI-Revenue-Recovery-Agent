@@ -568,9 +568,6 @@ http://localhost:8000/recovery/{Failed_id}/run
 SELECT id FROM failed_transactions;
 ```
 
-query db as select id from failed_transactions;
-copy and paste it there in the url
-Once all services are running, the recovery workflow can be tested using a failed transaction.
 
 The complete flow is:
 

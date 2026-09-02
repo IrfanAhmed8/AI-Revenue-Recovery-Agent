@@ -86,6 +86,14 @@ function App() {
             </h2>
             <p className="muted">Potentially recoverable revenue</p>
           </div>
+          <div className="stat-card info">
+            <div className="stat-top">
+              <span>Total Actions</span>
+              <span className="stat-icon">✓</span>
+            </div>
+            <h2>{info ? info.total_actions : '--'}</h2>
+            <p className="muted">Total recovery actions taken</p>
+          </div>
 
           <div className="stat-card success">
             <div className="stat-top">
