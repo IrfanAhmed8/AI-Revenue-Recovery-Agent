@@ -9,6 +9,7 @@ The system uses **Google Gemini** as its AI decision engine, **Razorpay** for pa
 # 🧠 How It Works
 
 When a payment fails, the AI Recovery Agent analyzes the failed transaction along with the customer's transaction history and payment context.
+![High Level Architecture](./images/Architecture.png)
 
 ```text
 Payment Failed
@@ -232,7 +233,7 @@ Make sure you are inside the `backend` directory and your virtual environment is
 Run:
 
 ```bash
-python app/seed_data.py
+python -m app.seed_data
 ```
 
 The `seed_data.py` script inserts sample data into the PostgreSQL database.
@@ -353,35 +354,47 @@ https://abc123.ngrok-free.app
 
 ---
 
-## Step 3: Configure the Razorpay Webhook
+# 🌐 Configure Razorpay Webhooks
 
-The webhook endpoint used by this project is:
+To receive payment status updates from Razorpay, you need to configure a webhook endpoint.
 
-```text
-/webhook/razorpay
-```
-
-Therefore, the complete webhook URL will be:
-
-```text
-https://abc123.ngrok-free.app/webhook/razorpay
-```
-
-Go to your Razorpay Dashboard and configure this URL as your webhook endpoint.
-
-Select the required payment event:
-
-```text
-payment.captured
-```
-
-Configure a webhook secret in Razorpay and add the same secret to your `.env` file:
-
-```env
-RAZORPAY_WEBHOOK_SECRET=your_razorpay_webhook_secret
-```
+Since the application runs locally during development, **ngrok** is used to expose the FastAPI backend to the internet.
 
 ---
+
+## Step 1 — Create a Razorpay Account
+
+Go to Razorpay and create an account if you don't already have one.
+
+After logging in, enable **Test Mode** for development and testing.
+
+> ⚠️ Make sure Test Mode is enabled before creating test payments and configuring webhooks.
+
+<!-- Add Razorpay Test Mode image here -->
+
+![Enable Razorpay Test Mode](./images/razorpay_home.png)
+
+---
+
+## Step 2 — Open Account & Settings
+
+From the Razorpay Dashboard:
+
+1. Click on **Account & Settings**.
+2. Navigate to **Website and App Settings**.
+
+<!-- Add Account & Settings image here -->
+
+![Account and Settings](./images/accounts.png)
+
+---
+
+## Step 3 — Open Webhooks
+
+Under **Website and App Settings**, click on:
+
+```text
+Webhooks
 
 # 🔒 Webhook Security
 
@@ -541,8 +554,22 @@ npm start
 
 ---
 
-# 🧪 Testing the Recovery Flow
+# 🧪 Testing the AI Recovery Flow
 
+At the moment, the project does **not use a queue-based system** for processing failed transactions.
+
+Instead, you can manually trigger the AI recovery workflow using the API endpoint.
+Endpoint to hit 
+``` bash
+http://localhost:8000/recovery/{Failed_id}/run
+```
+
+``` bash
+SELECT id FROM failed_transactions;
+```
+
+query db as select id from failed_transactions;
+copy and paste it there in the url
 Once all services are running, the recovery workflow can be tested using a failed transaction.
 
 The complete flow is:
@@ -623,6 +650,7 @@ Dashboard Updated
 The dashboard provides visibility into the recovery agent's performance.
 
 ## 🏠 Home
+![Home](./images/home.png)
 
 Displays:
 
@@ -636,7 +664,7 @@ Displays:
 ---
 
 ## 📜 Recovery History
-
+![Recovery History](./images/recovery_histroy.png)
 Displays successfully recovered transactions, including:
 
 * Transaction
@@ -650,7 +678,7 @@ Displays successfully recovered transactions, including:
 ---
 
 ## ⚙️ Currently Working On
-
+![Currently Working on](./images/recovery_action.png)
 Displays recovery actions executed by the AI agent, including:
 
 * Action
