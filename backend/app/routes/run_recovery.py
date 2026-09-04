@@ -197,7 +197,7 @@ def run_recovery(failed_transaction_id: str):
         # --------------------------------------------------
         # 7. Execute new action
         # --------------------------------------------------
-
+        
         result = execute_recovery_action(
             decision,
             failed_transaction_id
