@@ -1,4 +1,4 @@
-[▶ Project Pitch](https://www.youtube.com/watch?v=l7CChYgNmhc)
+[▶ Project Pitch video link](https://www.youtube.com/watch?v=l7CChYgNmhc)
 # 🤖 AI Revenue Recovery Agent
 
 An AI-powered revenue recovery system that analyzes failed payments, evaluates customer transaction history, and automatically determines the best recovery action.
